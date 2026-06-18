@@ -1,0 +1,30 @@
+{
+  "name": "asm-quynhlnx-pc11814",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:vite\" \"npm run dev:server\" --names \"VITE,JSON\" --prefix-colors \"cyan,yellow\"",
+    "dev:vite": "vite",
+    "server": "json-server --watch ./src/assets/data/db.json --port 3000",
+    "dev:server": "json-server --watch ./src/assets/data/db.json --port 3000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vee-validate/yup": "^4.15.1",
+    "axios": "^1.17.0",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "bootstrap-vue": "^2.23.1",
+    "vee-validate": "^4.15.1",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.6",
+    "concurrently": "^10.0.3",
+    "vite": "^8.0.12"
+  }
+}

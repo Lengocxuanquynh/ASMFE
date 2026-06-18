@@ -1,0 +1,209 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin Cà Phê",
+      "email": "admin@caphe.vn",
+      "password": "123456789",
+      "avatar": "https://i.pravatar.cc/150?img=1",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Trần Thị B",
+      "email": "user1@gmail.com",
+      "password": "123456789",
+      "avatar": "https://i.pravatar.cc/150?img=2",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "name": "Lê Minh C",
+      "email": "user2@gmail.com",
+      "password": "123456789",
+      "avatar": "https://i.pravatar.cc/150?img=3",
+      "role": "user"
+    },
+    {
+      "firstName": "Nguyễn",
+      "lastName": "An",
+      "email": "lngocxuanquynh@gmail.com",
+      "password": "123456789",
+      "role": "user",
+      "name": "Nguyễn An",
+      "id": "TnljvObPQKI"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Bakery Cafe",
+      "description": "Hạt cà phê Robusta pha phin đậm đặc, thêm đá (có thể thêm đường hoặc không). Vị đắng gắt, đậm đà, đậm chất truyền thống.sdfghjkl;'",
+      "image": "https://res.cloudinary.com/doi9js59k/image/upload/v1780665876/flower/t0gaxxz0fr0hobwiwanr.jpg",
+      "status": "Hiển thị",
+      "type": "Bánh",
+      "createdAt": "20:24:44 5/6/2026",
+      "updatedAt": "12:34:49 18/6/2026",
+      "id": "HP8uD_M5TvE"
+    },
+    {
+      "name": "Cà phê",
+      "description": "Cà phê phin đậm đặc kết hợp với sữa đặc có đường và đá. Vị đắng của cà phê hòa quyện với vị béo ngọt đậm của sữa.\n",
+      "image": "https://res.cloudinary.com/doi9js59k/image/upload/v1780666116/flower/bsoxhgxlbskbpiabg8dc.jpg",
+      "status": "Hiển thị",
+      "type": "Đồ uống",
+      "createdAt": "20:28:59 5/6/2026",
+      "updatedAt": "12:27:40 18/6/2026",
+      "id": "O_mL7ulY5Fw"
+    },
+    {
+      "name": "Cà phê muối",
+      "description": "Cà phê sữa truyền thống được thêm một lớp kem mặn nhẹ ở trên. Vị mặn của muối làm dịu vị đắng và tôn lên vị béo ngọt của sữa.",
+      "image": "https://res.cloudinary.com/doi9js59k/image/upload/v1781760515/flower/humidvoki2fgrm83l7fi.jpg",
+      "status": "Hiển thị",
+      "type": "Đồ uống",
+      "createdAt": "12:29:01 16/6/2026",
+      "updatedAt": "12:28:38 18/6/2026",
+      "id": "QDk2-yMVOgM"
+    }
+  ],
+  "blogs": [
+    {
+      "id": "1",
+      "title": "Cà phê Arabica Đà Lạt",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+      "content": "Arabica Đà Lạt nổi tiếng với hương thơm nhẹ nhàng, vị chua thanh và hậu vị ngọt.",
+      "category_id": "1",
+      "author_id": "1",
+      "created_at": "06/06/2026",
+      "updated_at": "06/06/2026",
+      "views": 120,
+      "likes": [
+        1,
+        2,
+        3
+      ],
+      "comments": [
+        {
+          "id": "1781760555156",
+          "user_id": "1",
+          "content": "qưertyuiop[",
+          "created_at": "18/6/2026",
+          "replies": []
+        },
+        {
+          "id": "1781760604231",
+          "user_id": "2",
+          "content": "qưertyuiop;['",
+          "created_at": "18/6/2026",
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Bí quyết pha Pour Over chuẩn vị",
+      "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e",
+      "content": "Pour Over giúp giữ trọn hương vị tinh tế của hạt cà phê và tạo ra ly cà phê trong trẻo.",
+      "category_id": "2",
+      "author_id": "2",
+      "created_at": "07/06/2026",
+      "updated_at": "07/06/2026",
+      "views": 95,
+      "likes": [
+        1,
+        3
+      ],
+      "comments": [
+        {
+          "id": "1",
+          "user_id": "1",
+          "content": "Phương pháp này rất đáng để thử.",
+          "created_at": "07/06/2026",
+          "replies": [
+            {
+              "id": "1",
+              "user_id": "3",
+              "content": "Mình cũng đang tập pha Pour Over.",
+              "created_at": "07/06/2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Văn hóa cà phê Việt Nam",
+      "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+      "content": "Cà phê không chỉ là thức uống mà còn là nét văn hóa đặc trưng của người Việt.",
+      "category_id": "3",
+      "author_id": "3",
+      "created_at": "08/06/2026",
+      "updated_at": "08/06/2026",
+      "views": 210,
+      "likes": [
+        2
+      ],
+      "comments": [
+        {
+          "id": "1",
+          "user_id": "2",
+          "content": "Mình thích ngồi quán cà phê vào cuối tuần.",
+          "created_at": "08/06/2026",
+          "replies": [
+            {
+              "id": "1",
+              "user_id": "1",
+              "content": "Đó cũng là thói quen của nhiều người Việt.",
+              "created_at": "08/06/2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gvtplWaqGMg",
+      "title": "qưertyuiop[]",
+      "image": "https://res.cloudinary.com/doi9js59k/image/upload/v1781760825/flower/dimrwwuu6uwisrtsqs8h.jpg",
+      "content": "qưertyuiopasdfghjklasdfghjkl",
+      "category_id": "3",
+      "views": 0,
+      "likes": [],
+      "comments": [],
+      "author_id": "TnljvObPQKI",
+      "created_at": "18/6/2026",
+      "updated_at": "18/6/2026"
+    },
+    {
+      "id": "i6e0zEjOP2Y",
+      "title": "qưertyuiop",
+      "image": "",
+      "content": "qưertyuiop[sdfghjkl;",
+      "category_id": "2",
+      "author_id": "1",
+      "created_at": "18/6/2026",
+      "updated_at": "18/6/2026",
+      "views": 0,
+      "likes": [],
+      "comments": []
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Cà phê sữa đá",
+      "price": 25000,
+      "description": "Cà phê pha phin truyền thống với sữa đặc",
+      "categoryId": null,
+      "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772"
+    },
+    {
+      "id": "2",
+      "name": "Bạc xỉu",
+      "price": 29000,
+      "description": "Bạc xỉu đá thơm béo, nhiều sữa ít cà phê",
+      "categoryId": null,
+      "image": "https://images.unsplash.com/photo-1579888944880-d98341245702"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
