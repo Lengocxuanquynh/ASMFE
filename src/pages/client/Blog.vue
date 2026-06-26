@@ -55,7 +55,6 @@ onMounted(() => {
                 <div class="modern-card">
                     <div class="card-img-wrapper">
                         <img :src="item.image" class="card-img" :alt="item.title">
-                        <div class="card-category">{{ item.category_id == '1' ? 'Cà phê' : (item.category_id == '2' ? 'Kiến thức' : 'Ẩm thực') }}</div>
                     </div>
                     <div class="card-content">
                         <div class="card-meta">
@@ -147,20 +146,6 @@ onMounted(() => {
     transform: scale(1.08);
 }
 
-.card-category {
-    position: absolute;
-    top: 1.25rem;
-    left: 1.25rem;
-    background: rgba(245, 235, 217, 0.95);
-    backdrop-filter: blur(8px);
-    padding: 0.4rem 1.25rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #3e2723;
-    box-shadow: 0 4px 12px rgba(139, 90, 43, 0.08);
-    z-index: 10;
-}
 
 .card-content {
     padding: 2rem;

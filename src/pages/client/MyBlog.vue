@@ -19,7 +19,6 @@ const initialFormState = {
   title: '',
   image: '',
   content: '',
-  category_id: '1',
   views: 0,
   likes: [],
   comments: []
@@ -46,17 +45,6 @@ const handleImageUpload = (data) => {
   formData.value.image = data.secure_url;
 };
 
-const getCategoryName = (id) => {
-  if (id === '1') return 'Cà phê';
-  if (id === '2') return 'Kiến thức';
-  return 'Ẩm thực';
-};
-
-const getCategoryBadgeClass = (id) => {
-  if (id === '1') return 'bg-success';
-  if (id === '2') return 'bg-info text-dark';
-  return 'bg-warning text-dark';
-};
 
 const openAddModal = () => {
   isEdit.value = false;
@@ -185,9 +173,7 @@ onMounted(() => {
                   class="card-img-top"
                   :alt="blog.title"
                 />
-                <span :class="['badge card-badge', getCategoryBadgeClass(blog.category_id)]">
-                  {{ getCategoryName(blog.category_id) }}
-                </span>
+
               </div>
 
               <div class="card-body d-flex flex-column">
@@ -231,14 +217,6 @@ onMounted(() => {
             <input type="text" class="form-control custom-input" v-model="formData.title" placeholder="Nhập tiêu đề thật ấn tượng...">
           </div>
           
-          <div class="mb-3">
-            <label class="form-label fw-bold">Thể loại <span class="text-danger">*</span></label>
-            <select class="form-select custom-input" v-model="formData.category_id">
-              <option value="1">Cà phê</option>
-              <option value="2">Kiến thức</option>
-              <option value="3">Ẩm thực</option>
-            </select>
-          </div>
 
           <div class="mb-3">
             <label class="form-label fw-bold">Ảnh bìa bài viết <span class="text-danger">*</span></label>
@@ -345,15 +323,7 @@ onMounted(() => {
   transform: scale(1.05);
 }
 
-.card-badge {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 50px;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
+
 
 .card-title {
   color: #3e2723;

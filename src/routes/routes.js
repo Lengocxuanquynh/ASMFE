@@ -25,6 +25,11 @@ import BlogList from "../pages/admin/blog/List.vue";
 import Add from "../pages/admin/blog/Add.vue";
 import Edit from "../pages/admin/blog/Edit.vue";
 
+
+import ProductCategoryList from "../pages/admin/productCategory/List.vue";
+import ProductCategoryAdd from "../pages/admin/productCategory/Add.vue";
+import ProductCategoryEdit from "../pages/admin/productCategory/Edit.vue";
+
 import CommentList from "../pages/admin/comment/List.vue";
 import CommentAdd from "../pages/admin/comment/Add.vue";
 import CommentEdit from "../pages/admin/comment/Edit.vue";
@@ -133,6 +138,22 @@ const routes = [
       {
         path: "blogEdit",
         component: Edit,
+      },
+
+
+      {
+        path: "productCategoryList",
+        component: ProductCategoryList,
+      },
+
+      {
+        path: "productCategoryAdd",
+        component: ProductCategoryAdd,
+      },
+
+      {
+        path: "productCategoryEdit/:id",
+        component: ProductCategoryEdit,
       },
 
       {

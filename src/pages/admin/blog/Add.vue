@@ -33,31 +33,16 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-6 mb-4">
-              <label class="form-label-custom"> Thể loại <span class="required">*</span></label>
-              <div class="select-wrapper">
-                <select class="form-select-custom" v-model="formData.category_id" required>
-                  <option value="" disabled>Chọn thể loại</option>
-                  <option value="1">Cà phê</option>
-                  <option value="2">Kiến thức</option>
-                  <option value="3">Ẩm thực</option>
-                </select>
-                <i class="bi bi-chevron-down select-icon"></i>
+          <div class="mb-4">
+            <label class="form-label-custom"> Hình ảnh </label>
+            <div class="upload-wrapper">
+              <div v-if="formData.image" class="position-relative d-inline-block">
+                <img :src="formData.image" class="img-preview" alt="Preview" />
+                <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 rounded-circle" @click="formData.image = ''" title="Xóa ảnh">
+                  <i class="bi bi-x"></i>
+                </button>
               </div>
-            </div>
-
-            <div class="col-md-6 mb-4">
-              <label class="form-label-custom"> Hình ảnh </label>
-              <div class="upload-wrapper">
-                <div v-if="formData.image" class="position-relative d-inline-block">
-                  <img :src="formData.image" class="img-preview" alt="Preview" />
-                  <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 rounded-circle" @click="formData.image = ''" title="Xóa ảnh">
-                    <i class="bi bi-x"></i>
-                  </button>
-                </div>
-                <ImageUpload v-else @submitData="handleImageUpload" />
-              </div>
+              <ImageUpload v-else @submitData="handleImageUpload" />
             </div>
           </div>
 
@@ -95,7 +80,6 @@ const loading = ref(false);
 
 const formData = ref({
     title: '',
-    category_id: '',
     image: '',
     content: ''
 });
@@ -115,7 +99,6 @@ const handleSubmit = async () => {
             title: formData.value.title,
             image: formData.value.image,
             content: formData.value.content,
-            category_id: formData.value.category_id,
             author_id: String(user.id),
             created_at: new Date().toLocaleDateString('vi-VN'),
             updated_at: new Date().toLocaleDateString('vi-VN'),

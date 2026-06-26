@@ -40,9 +40,9 @@
       "description": "Hạt cà phê Robusta pha phin đậm đặc, thêm đá (có thể thêm đường hoặc không). Vị đắng gắt, đậm đà, đậm chất truyền thống.sdfghjkl;'",
       "image": "https://res.cloudinary.com/doi9js59k/image/upload/v1780665876/flower/t0gaxxz0fr0hobwiwanr.jpg",
       "status": "Hiển thị",
-      "type": "Bánh",
+      "type": "Đồ uống",
       "createdAt": "20:24:44 5/6/2026",
-      "updatedAt": "12:34:49 18/6/2026",
+      "updatedAt": "17:01:49 26/6/2026",
       "id": "HP8uD_M5TvE"
     },
     {
@@ -203,6 +203,29 @@
       "description": "Bạc xỉu đá thơm béo, nhiều sữa ít cà phê",
       "categoryId": null,
       "image": "https://images.unsplash.com/photo-1579888944880-d98341245702"
+    }
+  ],
+  "productCategories": [
+    {
+      "id": "1",
+      "name": "Đồ uống",
+      "description": "Các loại thức uống như cà phê, trà, nước ép và đồ uống đặc biệt.",
+      "status": "Hiển thị",
+      "createdAt": "08:00:00 1/6/2026"
+    },
+    {
+      "id": "2",
+      "name": "Bánh ngọt",
+      "description": "Các loại bánh ngọt, bánh kem và đồ ăn nhẹ kèm cà phê.",
+      "status": "Hiển thị",
+      "createdAt": "08:00:00 1/6/2026"
+    },
+    {
+      "id": "3",
+      "name": "Combo",
+      "description": "Các combo kết hợp đồ uống và bánh với giá ưu đãi.",
+      "status": "Hiển thị",
+      "createdAt": "08:00:00 1/6/2026"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

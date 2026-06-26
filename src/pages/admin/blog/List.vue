@@ -23,7 +23,6 @@
             <tr>
               <th>#</th>
               <th>Bài Viết</th>
-              <th>Thể Loại</th>
               <th>Tác Giả</th>
               <th>Ngày Đăng</th>
               <th class="text-center">Thao Tác</th>
@@ -32,13 +31,13 @@
 
           <tbody>
             <tr v-if="loading">
-              <td colspan="7" class="text-center empty-state py-5">
+              <td colspan="5" class="text-center empty-state py-5">
                 <i class="bi bi-arrow-clockwise fs-1 text-muted mb-3 d-block spin"></i>
                 <p>Đang tải dữ liệu...</p>
               </td>
             </tr>
             <tr v-else-if="blogs.length === 0">
-              <td colspan="7" class="text-center empty-state py-5">
+              <td colspan="5" class="text-center empty-state py-5">
                 <i class="bi bi-inbox fs-1 text-muted mb-3 d-block"></i>
                 <p>Chưa có bài viết nào.</p>
               </td>
@@ -57,7 +56,6 @@
                 </div>
               </td>
               
-              <td><span class="category-pill">{{ getCategoryName(blog.category_id) }}</span></td>
               <td><span class="text-muted fw-medium">{{ getUserName(blog.author_id) }}</span></td>
               <td class="text-muted">{{ blog.created_at }}</td>
               

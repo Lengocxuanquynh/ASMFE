@@ -35,11 +35,6 @@ const authorName = computed(() => {
     return author ? author.name : 'Unknown';
 });
 
-const getCategoryName = (id) => {
-    if (id === '1') return 'Cà phê';
-    if (id === '2') return 'Kiến thức';
-    return 'Ẩm thực';
-};
 
 const getUserInfo = (userId) => {
     const user = users.value.find(u => String(u.id) === String(userId));
@@ -140,10 +135,6 @@ onMounted(() => {
             class="img-fluid rounded-4 shadow-sm mb-4 w-100"
             style="max-height: 400px; object-fit: cover;"
           />
-
-          <span class="badge category-badge mb-3">
-            {{ getCategoryName(blog.category_id) }}
-          </span>
 
           <h1 class="fw-bold mb-3 title-coffee">
             {{ blog.title }}
@@ -259,13 +250,6 @@ onMounted(() => {
   font-family: 'Inter', sans-serif;
   background-color: #faf8f5;
   min-height: 100vh;
-}
-
-.category-badge {
-  background-color: #8b5a2b;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
 }
 
 .title-coffee {

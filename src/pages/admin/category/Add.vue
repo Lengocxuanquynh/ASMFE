@@ -1,13 +1,30 @@
 <script setup>
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { useForm, useField } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/yup";
 import * as yup from "yup";
 import CategoryService from "../../../services/categoryService";
+import ProductCategoryService from "../../../services/productCategoryService";
 import ImageUpload from "../../../components/Image.vue";
 
 const router = useRouter();
 const categoryService = new CategoryService();
+const productCategoryService = new ProductCategoryService();
+const productCategories = ref([]);
+
+const fetchProductCategories = async () => {
+  try {
+    const res = await productCategoryService.list();
+    productCategories.value = res.data || [];
+  } catch (err) {
+    console.error("FETCH PRODUCT CATEGORIES ERROR:", err);
+  }
+};
+
+onMounted(() => {
+  fetchProductCategories();
+});
 
 const { errors, handleSubmit } = useForm({
   validationSchema: toTypedSchema(
@@ -128,8 +145,13 @@ const create = handleSubmit(async (values) => {
                     <div class="select-wrapper">
                       <select class="form-select-custom" v-model="type">
                         <option value="" disabled>Chọn thể loại</option>
-                        <option value="Đồ uống">Đồ uống</option>
-                        <option value="Bánh">Bánh</option>
+                        <option
+                          v-for="cat in productCategories"
+                          :key="cat.id"
+                          :value="cat.name"
+                        >
+                          {{ cat.name }}
+                        </option>
                       </select>
                       <i class="bi bi-chevron-down select-icon"></i>
                     </div>

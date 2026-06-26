@@ -1,30 +1,29 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import CategoryService from "../../../services/categoryService";
+import ProductCategoryService from "../../../services/productCategoryService";
 
-const categoryService = new CategoryService();
+const productCategoryService = new ProductCategoryService();
 const categoryList = ref([]);
-const placeholderImage = "https://placehold.co/100";
 
 const fetchCategories = async () => {
   try {
-    const res = await categoryService.list();
+    const res = await productCategoryService.list();
     categoryList.value = res.data || [];
   } catch (err) {
-    console.error("FETCH CATEGORIES ERROR:", err.response?.data || err.message);
-    alert("Không thể tải nước uống. Vui lòng thử lại.");
+    console.error("FETCH PRODUCT CATEGORIES ERROR:", err.response?.data || err.message);
+    alert("Không thể tải danh sách danh mục. Vui lòng thử lại.");
   }
 };
 
 const deleteCategory = async (id) => {
-  if (!confirm("Bạn có chắc chắn xoá món này?")) return;
+  if (!confirm("Bạn có chắc chắn xoá danh mục này?")) return;
   try {
-    await categoryService.delete(id);
+    await productCategoryService.delete(id);
     await fetchCategories();
-    alert("Xoá món thành công.");
+    alert("Xoá danh mục thành công.");
   } catch (err) {
-    console.error("DELETE CATEGORY ERROR:", err.response?.data || err.message);
-    alert("Xoá món thất bại. Vui lòng thử lại.");
+    console.error("DELETE PRODUCT CATEGORY ERROR:", err.response?.data || err.message);
+    alert("Xoá danh mục thất bại. Vui lòng thử lại.");
   }
 };
 
@@ -45,16 +44,16 @@ onMounted(() => {
       <div class="card-header-custom">
         <div class="header-left">
           <div class="icon-box">
-            <i class="bi bi-cup-hot-fill"></i>
+            <i class="bi bi-grid-fill"></i>
           </div>
           <div>
-            <h2 class="page-title">Danh Sách Sản Phẩm</h2>
-            <p class="page-subtitle">Quản lý và cập nhật các món cà phê, bánh ngọt</p>
+            <h2 class="page-title">Danh Mục Sản Phẩm</h2>
+            <p class="page-subtitle">Quản lý và cập nhật các danh mục sản phẩm</p>
           </div>
         </div>
 
-        <RouterLink to="/admin/categoryAdd" class="btn-primary-custom">
-          <i class="bi bi-plus-lg me-2"></i> Thêm Món Mới
+        <RouterLink to="/admin/productCategoryAdd" class="btn-primary-custom">
+          <i class="bi bi-plus-lg me-2"></i> Thêm Danh Mục
         </RouterLink>
       </div>
 
@@ -63,8 +62,7 @@ onMounted(() => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Món</th>
-              <th>Danh Mục</th>
+              <th>Tên Danh Mục</th>
               <th>Trạng Thái</th>
               <th>Ngày Tạo</th>
               <th class="text-center">Thao Tác</th>
@@ -73,9 +71,9 @@ onMounted(() => {
 
           <tbody>
             <tr v-if="categoryList.length === 0">
-              <td colspan="6" class="text-center empty-state py-5">
+              <td colspan="5" class="text-center empty-state py-5">
                 <i class="bi bi-inbox fs-1 text-muted mb-3 d-block"></i>
-                <p>Chưa có sản phẩm nào.</p>
+                <p>Chưa có danh mục nào.</p>
               </td>
             </tr>
 
@@ -83,25 +81,18 @@ onMounted(() => {
               <td class="fw-medium text-muted">{{ idx + 1 }}</td>
 
               <td>
-                <div class="product-info">
-                  <div class="product-img-wrapper">
-                    <img :src="item.image || placeholderImage" class="product-img" alt="Product Image" />
+                <div class="category-info">
+                  <div class="category-icon-wrap">
+                    <i class="bi bi-grid"></i>
                   </div>
-                  <div class="product-details">
-                    <div class="product-name">{{ item.name }}</div>
-                    <div class="product-desc">{{ item.description || 'Không có mô tả' }}</div>
-                  </div>
+                  <div class="category-name">{{ item.name }}</div>
                 </div>
               </td>
 
               <td>
-                <span class="category-pill">{{ item.category || item.type || "Cà phê" }}</span>
-              </td>
-
-              <td>
-                <span class="status-badge success">
+                <span :class="['status-badge', item.status === 'Hiển thị' ? 'success' : 'hidden']">
                   <span class="dot"></span>
-                  {{ item.status || "Đang hiển thị" }}
+                  {{ item.status || "Hiển thị" }}
                 </span>
               </td>
 
@@ -110,7 +101,7 @@ onMounted(() => {
               <td>
                 <div class="action-buttons">
                   <RouterLink
-                    :to="`/admin/categoryEdit/${item.id}`"
+                    :to="`/admin/productCategoryEdit/${item.id}`"
                     class="btn-icon edit-btn"
                   >
                     <i class="bi bi-pencil-square"></i>
@@ -133,7 +124,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Dashboard Container */
 .admin-dashboard {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: #faf8f5;
@@ -148,7 +138,6 @@ onMounted(() => {
   border: 1px solid rgba(139, 90, 43, 0.08);
 }
 
-/* Header */
 .card-header-custom {
   padding: 2rem 2.5rem;
   display: flex;
@@ -192,7 +181,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* Buttons */
 .btn-primary-custom {
   background: linear-gradient(135deg, #8b5a2b 0%, #6d4c41 100%);
   color: white;
@@ -213,7 +201,6 @@ onMounted(() => {
   color: white;
 }
 
-/* Table Design */
 .table-wrapper {
   overflow-x: auto;
   padding: 0 1rem 1rem 1rem;
@@ -247,50 +234,37 @@ onMounted(() => {
   background-color: #faf8f5;
 }
 
-/* Product Info */
-.product-info {
+.category-info {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
-.product-img-wrapper {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  overflow: hidden;
+.category-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f5ebd9 0%, #e8d5c4 100%);
+  color: #8b5a2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-.product-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-name {
+.category-name {
   font-weight: 600;
   color: #3e2723;
   font-size: 1rem;
-  margin-bottom: 0.2rem;
 }
 
-.product-desc {
-  color: #795548;
-  font-size: 0.85rem;
-}
-
-/* Badges & Pills */
-.category-pill {
-  background: #f5ebd9;
-  color: #5d4037;
-  padding: 0.4rem 0.8rem;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  display: inline-block;
+.desc-cell {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 .status-badge {
@@ -308,6 +282,11 @@ onMounted(() => {
   color: #2e7d32;
 }
 
+.status-badge.hidden {
+  background: #fce4ec;
+  color: #c62828;
+}
+
 .status-badge .dot {
   width: 6px;
   height: 6px;
@@ -315,7 +294,6 @@ onMounted(() => {
   border-radius: 50%;
 }
 
-/* Actions */
 .action-buttons {
   display: flex;
   justify-content: center;
@@ -334,6 +312,7 @@ onMounted(() => {
   color: #795548;
   transition: all 0.2s ease;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .edit-btn:hover {

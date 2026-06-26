@@ -22,6 +22,11 @@
           </RouterLink>
         </li>
         <li>
+          <RouterLink to="/admin/productCategoryList" class="nav-link">
+            <i class="bi bi-grid me-2"></i> Danh mục sản phẩm
+          </RouterLink>
+        </li>
+        <li>
           <RouterLink to="/admin/blogList" class="nav-link">
             <i class="bi bi-file-earmark-text me-2"></i> Danh sách bài viết
           </RouterLink>
