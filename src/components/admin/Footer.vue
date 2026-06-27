@@ -49,7 +49,7 @@
     
     <div class="footer-bottom py-3 text-center">
       <div class="container">
-        <p class="mb-0 text-light-coffee-muted">Copyright © 2025 Cà Phê - All Rights Reserved</p>
+        <p class="mb-0 text-light-coffee-muted">Copyright © 2026 Cà Phê - All Rights Reserved</p>
       </div>
     </div>
   </footer>
@@ -57,7 +57,7 @@
 
 <style scoped>
 .footer-coffee {
-  background-color: #3e2723; /* Dark coffee background */
+  background-color: #3e2723; 
   color: #fff;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .footer-bottom {
-  background-color: #2b1b18; /* Darker shade for the bottom bar */
+  background-color: #2b1b18; 
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 

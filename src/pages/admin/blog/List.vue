@@ -144,7 +144,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Dashboard Container */
 .admin-dashboard {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: #faf8f5;
@@ -159,7 +158,6 @@ onMounted(() => {
   border: 1px solid rgba(139, 90, 43, 0.08);
 }
 
-/* Header */
 .card-header-custom {
   padding: 2rem 2.5rem;
   display: flex;
@@ -203,7 +201,7 @@ onMounted(() => {
   margin: 0;
 }
 
-/* Buttons */
+
 .btn-primary-custom {
   background: linear-gradient(135deg, #8b5a2b 0%, #6d4c41 100%);
   color: white;
@@ -224,7 +222,6 @@ onMounted(() => {
   color: white;
 }
 
-/* Table Design */
 .table-wrapper {
   overflow-x: auto;
   padding: 0 1rem 1rem 1rem;
@@ -258,7 +255,6 @@ onMounted(() => {
   background-color: #faf8f5;
 }
 
-/* Product Info */
 .product-info {
   display: flex;
   align-items: center;
@@ -292,7 +288,7 @@ onMounted(() => {
   font-size: 0.85rem;
 }
 
-/* Badges & Pills */
+
 .category-pill {
   background: #f5ebd9;
   color: #5d4037;

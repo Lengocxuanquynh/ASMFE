@@ -49,7 +49,7 @@
     
     <div class="footer-bottom py-3 text-center">
       <div class="container">
-        <p class="mb-0 text-light-coffee-muted">Copyright © 2025 Cà Phê - All Rights Reserved</p>
+        <p class="mb-0 text-light-coffee-muted">Copyright © 2026 Cà Phê - All Rights Reserved</p>
       </div>
     </div>
   </footer>

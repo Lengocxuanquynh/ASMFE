@@ -144,8 +144,8 @@ onMounted(() => {
             <span>Đăng bởi <strong>{{ authorName }}</strong></span>
             <span class="mx-2">•</span>
             <span>{{ blog.created_at || 'Mới đây' }}</span>
-            <span class="mx-2">•</span>
-            <span>👁️ {{ blog.views || 0 }} lượt xem</span>
+          
+           
           </div>
 
           <p class="fs-5 text-secondary content-text">
@@ -161,11 +161,10 @@ onMounted(() => {
 
           <hr class="mb-5 custom-hr" />
 
-          <!-- Comment Section -->
           <div class="comments-section">
             <h3 class="mb-4">Bình luận ({{ blog.comments?.length || 0 }})</h3>
 
-            <!-- Comment Input -->
+         
             <div class="comment-input-box mb-5" v-if="currentUser">
               <div class="d-flex gap-3">
                 <img :src="currentUser.avatar || 'https://i.pravatar.cc/150'" alt="Avatar" class="rounded-circle avatar-sm" />
@@ -188,7 +187,6 @@ onMounted(() => {
               Vui lòng <RouterLink to="/login" class="fw-bold text-coffee-dark">đăng nhập</RouterLink> để tham gia bình luận.
             </div>
 
-            <!-- Comments List -->
             <div class="comment-list">
               <div v-for="comment in (blog.comments || [])" :key="comment.id" class="comment-item mb-4">
                 <div class="d-flex gap-3">
@@ -200,7 +198,7 @@ onMounted(() => {
                         <small class="text-muted">{{ comment.created_at }}</small>
                       </div>
                       
-                      <!-- Edit/Delete actions -->
+                   
                       <div class="comment-actions" v-if="currentUser && String(currentUser.id) === comment.user_id && editingCommentId !== comment.id">
                         <button class="btn btn-sm btn-link text-secondary" @click="startEdit(comment)" title="Sửa">
                           <i class="bi bi-pencil"></i>
@@ -211,7 +209,7 @@ onMounted(() => {
                       </div>
                     </div>
 
-                    <!-- Display Content or Edit Mode -->
+                  
                     <div v-if="editingCommentId === comment.id" class="mt-2">
                       <textarea 
                         class="form-control custom-textarea mb-2" 

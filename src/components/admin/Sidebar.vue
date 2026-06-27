@@ -66,7 +66,7 @@ function logout() {
   padding: 24px 16px;
   box-sizing: border-box;
   min-height: 100vh;
-  background: #3e2723; /* Dark coffee background */
+  background: #3e2723; 
   border-right: 1px solid rgba(203, 160, 82, 0.2);
   position: sticky;
   top: 0;

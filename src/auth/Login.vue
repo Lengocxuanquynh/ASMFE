@@ -102,7 +102,7 @@ const submitLogin = handleSubmit(async (values) => {
                         <div class="mb-4 input-group-custom">
                             <label for="password" class="form-label-custom d-flex justify-content-between">
                                 Mật khẩu
-                                <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                                
                             </label>
                             <div class="input-with-icon">
                                 <i class="bi bi-lock icon"></i>

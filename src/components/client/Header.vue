@@ -55,9 +55,19 @@
         </ul>
 
         <div class="d-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
-          <button class="btn btn-link nav-icon text-dark-coffee p-0">
-            <i class="bi bi-search"></i>
-          </button>
+          <div class="d-flex align-items-center me-2 position-relative">
+            <input 
+              type="text" 
+              class="form-control form-control-sm search-input" 
+              placeholder="Tìm kiếm..." 
+              v-model="headerSearchQuery"
+              @keyup.enter="executeSearch"
+              style="width: 150px; border-radius: 20px; border: 1px solid #cba052; padding: 0.25rem 0.75rem; background-color: #faf8f5;"
+            />
+            <button class="btn btn-link nav-icon text-dark-coffee p-0 ms-2" @click="executeSearch">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
 
           <template v-if="!user">
             <RouterLink to="/login" class="btn btn-login ms-2">
@@ -129,6 +139,14 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const user = ref(null);
 const role = ref(null);
+const headerSearchQuery = ref("");
+
+const executeSearch = () => {
+  if (headerSearchQuery.value.trim()) {
+    router.push({ path: "/product", query: { search: headerSearchQuery.value.trim() } });
+    headerSearchQuery.value = "";
+  }
+};
 
 onMounted(() => {
   const userData = localStorage.getItem("user");

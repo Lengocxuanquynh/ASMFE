@@ -146,7 +146,6 @@ onMounted(() => {
           </button>
         </div>
 
-        <!-- Trạng thái Loading -->
         <div v-if="isLoading" class="text-center py-5">
           <div class="spinner-border text-coffee" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -154,7 +153,6 @@ onMounted(() => {
           <p class="mt-2 text-muted">Đang tải bài viết của bạn...</p>
         </div>
 
-        <!-- Danh sách bài viết -->
         <div class="row g-4" v-else>
           <div class="col-12" v-if="myBlogs.length === 0">
             <div class="text-center py-5 bg-white rounded-4 shadow-sm border border-light">

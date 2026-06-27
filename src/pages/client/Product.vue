@@ -26,12 +26,13 @@
             Tìm kiếm
           </div>
           <div class="filter-body">
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" @submit.prevent>
               <input
                 class="form-control custom-input me-2"
                 type="search"
                 placeholder="Nhập tên món..."
                 aria-label="Search"
+                v-model="searchQuery"
               />
               <button class="btn-coffee-outline" type="submit">
                 Tìm
@@ -159,16 +160,34 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import CategoryService from "../../services/categoryService";
 import ProductService from "../../services/productService";
+import ProductCategoryService from "../../services/productCategoryService";
 
+const route = useRoute();
 const categoryService = new CategoryService();
 const productService = new ProductService();
+const productCategoryService = new ProductCategoryService();
 
 const categories = ref([]);
 const products = ref([]);
 const selectedCategoryId = ref("");
+const searchQuery = ref("");
+
+
+watch(
+  () => route.query.search,
+  (newSearch) => {
+    if (newSearch !== undefined) {
+      searchQuery.value = newSearch;
+    } else {
+      searchQuery.value = "";
+    }
+  },
+  { immediate: true }
+);
 const loading = ref(false);
 const errorMessage = ref("");
 const placeholderImage = "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80";
@@ -191,9 +210,24 @@ const activeCategories = computed(() => {
 });
 
 const filteredProducts = computed(() => {
-  const base = products.value || [];
+  let base = products.value || [];
+  
+
+  if (searchQuery.value.trim()) {
+    const query = searchQuery.value.toLowerCase().trim();
+    base = base.filter((p) => p.name && p.name.toLowerCase().includes(query));
+  }
+
+  // Lọc theo danh mục
   if (!selectedCategoryId.value) return base;
-  return base.filter((p) => String(p.categoryId ?? p.category_id ?? "") === String(selectedCategoryId.value));
+  
+  const selectedCat = categories.value.find(c => String(c.id) === String(selectedCategoryId.value));
+  const categoryName = selectedCat ? selectedCat.name : selectedCategoryId.value;
+
+  return base.filter((p) => {
+    const pType = p.type || p.category || "";
+    return String(pType).toLowerCase() === String(categoryName).toLowerCase();
+  });
 });
 
 const activeCategoryIds = computed(() => new Set(activeCategories.value.map((c) => String(c.id))));
@@ -203,18 +237,17 @@ const fetchAll = async () => {
   errorMessage.value = "";
 
   try {
-    // Trong trang Admin, "Nước uống" đang được thêm và lưu qua categoryService (vào endpoint /categories)
-    const res = await categoryService.list();
+    // Tải danh mục thực tế từ productCategoryService
+    const catRes = await productCategoryService.list();
+    categories.value = catRes.data || [];
 
+    // Tải danh sách nước uống từ /categories làm products
+    const res = await categoryService.list();
     const rawData = res.data || [];
     
-    // Lấy danh sách nước uống từ /categories làm products
     products.value = rawData.filter((p) => {
       return p.status === "Hiển thị" || p.status === "Đang hiển thị" || p.status === true;
     });
-
-    // Để trống categories vì hiện tại dữ liệu categories đang chứa thông tin nước uống
-    categories.value = [];
   } catch (err) {
     console.error("FETCH ERROR:", err.response?.data || err.message);
     errorMessage.value = "Không thể tải danh sách nước uống/sản phẩm.";

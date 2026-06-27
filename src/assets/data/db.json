@@ -32,6 +32,15 @@
       "role": "user",
       "name": "Nguyễn An",
       "id": "TnljvObPQKI"
+    },
+    {
+      "firstName": "user",
+      "lastName": "1",
+      "email": "user5@gmail.com",
+      "password": "123456789",
+      "role": "user",
+      "name": "user 1",
+      "id": "Dr353EHFIiw"
     }
   ],
   "categories": [
@@ -54,16 +63,6 @@
       "createdAt": "20:28:59 5/6/2026",
       "updatedAt": "12:27:40 18/6/2026",
       "id": "O_mL7ulY5Fw"
-    },
-    {
-      "name": "Cà phê muối",
-      "description": "Cà phê sữa truyền thống được thêm một lớp kem mặn nhẹ ở trên. Vị mặn của muối làm dịu vị đắng và tôn lên vị béo ngọt của sữa.",
-      "image": "https://res.cloudinary.com/doi9js59k/image/upload/v1781760515/flower/humidvoki2fgrm83l7fi.jpg",
-      "status": "Hiển thị",
-      "type": "Đồ uống",
-      "createdAt": "12:29:01 16/6/2026",
-      "updatedAt": "12:28:38 18/6/2026",
-      "id": "QDk2-yMVOgM"
     }
   ],
   "blogs": [
@@ -86,15 +85,15 @@
         {
           "id": "1781760555156",
           "user_id": "1",
-          "content": "qưertyuiop[",
+          "content": "qưertyuiop[fvbdfbdfb",
           "created_at": "18/6/2026",
           "replies": []
         },
         {
-          "id": "1781760604231",
-          "user_id": "2",
-          "content": "qưertyuiop;['",
-          "created_at": "18/6/2026",
+          "id": "1782520678645",
+          "user_id": "1",
+          "content": "avfbbdvgf",
+          "created_at": "27/6/2026",
           "replies": []
         }
       ]
@@ -159,32 +158,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "gvtplWaqGMg",
-      "title": "qưertyuiop[]",
-      "image": "https://res.cloudinary.com/doi9js59k/image/upload/v1781760825/flower/dimrwwuu6uwisrtsqs8h.jpg",
-      "content": "qưertyuiopasdfghjklasdfghjkl",
-      "category_id": "3",
-      "views": 0,
-      "likes": [],
-      "comments": [],
-      "author_id": "TnljvObPQKI",
-      "created_at": "18/6/2026",
-      "updated_at": "18/6/2026"
-    },
-    {
-      "id": "i6e0zEjOP2Y",
-      "title": "qưertyuiop",
-      "image": "",
-      "content": "qưertyuiop[sdfghjkl;",
-      "category_id": "2",
-      "author_id": "1",
-      "created_at": "18/6/2026",
-      "updated_at": "18/6/2026",
-      "views": 0,
-      "likes": [],
-      "comments": []
     }
   ],
   "products": [

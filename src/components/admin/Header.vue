@@ -60,19 +60,6 @@
                 <h6 class="dropdown-header text-gold">Tài khoản Quản trị</h6>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-person me-2"></i> Hồ sơ
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="bi bi-gear me-2"></i> Cài đặt
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
                 <RouterLink class="dropdown-item" to="/">
                   <i class="bi bi-house me-2"></i> Xem trang khách
                 </RouterLink>
@@ -102,7 +89,7 @@ function logout() {
 
 <style scoped>
 .custom-navbar {
-  background-color: #f5eedc; /* Cream background matching client header */
+  background-color: #f5eedc; 
   padding: 0.8rem 1.5rem;
   box-shadow: 0 2px 15px rgba(109, 76, 65, 0.08);
 }

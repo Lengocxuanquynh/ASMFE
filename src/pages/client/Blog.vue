@@ -59,7 +59,6 @@ onMounted(() => {
                     <div class="card-content">
                         <div class="card-meta">
                             <span class="meta-author">{{ item.tacGia }}</span>
-                            <span class="meta-likes">❤️ {{ item.likes?.length || 0 }}</span>
                         </div>
                         <h3 class="card-title">{{ item.title }}</h3>
                         <p class="card-desc two-line-ellipsis">{{ item.content }}</p>
@@ -74,7 +73,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Typography & Container */
+
 .blog-page {
     padding: 2rem 1rem;
     max-width: 1400px;
@@ -108,7 +107,6 @@ onMounted(() => {
     line-height: 1.6;
 }
 
-/* Card Design */
 .modern-card {
     background: #ffffff;
     border-radius: 20px;
